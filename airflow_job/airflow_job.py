@@ -24,8 +24,8 @@ with DAG(
 
     # Fetch environment variables
     env = Variable.get("env", default_var="dev")
-    gcs_bucket = Variable.get("gcs_bucket", default_var="airflow-projetcs-gds")
-    bq_project = Variable.get("bq_project", default_var="psyched-service-442305-q1")
+    gcs_bucket = Variable.get("gcs_bucket", default_var="airflow_exercise")
+    bq_project = Variable.get("bq_project", default_var="hive-proj-449218")
     bq_dataset = Variable.get("bq_dataset", default_var=f"flight_data_{env}")
     tables = Variable.get("tables", deserialize_json=True)
 
@@ -68,9 +68,9 @@ with DAG(
         },
         "environment_config": {
             "execution_config": {
-                "service_account": "70622048644-compute@developer.gserviceaccount.com",
-                "network_uri": "projects/psyched-service-442305-q1/global/networks/default",
-                "subnetwork_uri": "projects/psyched-service-442305-q1/regions/us-central1/subnetworks/default",
+                "service_account": "522469344583-compute@developer.gserviceaccount.com",
+                "network_uri": "projects/hive-proj-449218/global/networks/default",
+                "subnetwork_uri": "projects/hive-proj-449218/regions/us-central1/subnetworks/default",
             }
         },
     }
@@ -79,7 +79,7 @@ with DAG(
         task_id="run_spark_job_on_dataproc_serverless",
         batch=batch_details,
         batch_id=batch_id,
-        project_id="psyched-service-442305-q1",
+        project_id="hive-proj-449218",
         region="us-central1",
         gcp_conn_id="google_cloud_default",
     )
