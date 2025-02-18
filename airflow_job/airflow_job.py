@@ -5,7 +5,7 @@ from airflow.providers.google.cloud.operators.dataproc import DataprocCreateBatc
 from airflow.providers.google.cloud.sensors.gcs import GCSObjectExistenceSensor
 from airflow.models import Variable
 
-# DAG default arguments
+# DAG default argumentss
 default_args = {
     'owner': 'airflow',
     'depends_on_past': False,
